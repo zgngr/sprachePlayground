@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="AnswerType.cs" />
     <Compile Include="BuildingQuestionnaire.cs" />
+    <Compile Include="ObjectDumper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="Questionnaire.cs" />
