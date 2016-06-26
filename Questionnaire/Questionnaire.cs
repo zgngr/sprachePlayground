@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
-namespace SprachePlayground.Tests
+namespace Questionnaire
 {
     public class Questionnaire
     {

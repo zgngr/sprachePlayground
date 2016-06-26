@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace SprachePlayground.Tests
+namespace Questionnaire
 {
     public class Question
     {

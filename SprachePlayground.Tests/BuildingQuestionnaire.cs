@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using NUnit.Framework;
+using Questionnaire;
 using Sprache;
 
 namespace SprachePlayground.Tests

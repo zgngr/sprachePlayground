@@ -1,4 +1,4 @@
-﻿namespace SprachePlayground.Tests
+﻿namespace Questionnaire
 {
     public enum AnswerType
     {
