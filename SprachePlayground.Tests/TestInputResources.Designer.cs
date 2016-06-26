@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SprachePlayground.Tests.Properties {
+namespace SprachePlayground.Tests {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace SprachePlayground.Tests.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class TestInputResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal TestInputResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace SprachePlayground.Tests.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SprachePlayground.Tests.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SprachePlayground.Tests.TestInputResources", typeof(TestInputResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,15 +61,32 @@ namespace SprachePlayground.Tests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to identification  &quot;Personal Details&quot;
+        ///   Looks up a localized string similar to details &quot;Personal Details&quot;
         ///[
-        ///    name        &quot;Full Name&quot;
-        ///    department  &quot;Department&quot;
+        ///  name	&quot;First Name&quot;
+        ///  age	&quot;Age&quot;
         ///].
         /// </summary>
-        internal static string questions {
+        internal static string NameAgeSection {
             get {
-                return ResourceManager.GetString("questions", resourceCulture);
+                return ResourceManager.GetString("NameAgeSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to first &quot;The First Step&quot; [
+        ///	value		&quot;First Value&quot;
+        ///]
+        ///
+        ///second &quot;The Second Step&quot; [
+        ///	#another	&quot;Second Value&quot;
+        ///	?more		&quot;Yet More&quot;
+        ///]
+        ///.
+        /// </summary>
+        internal static string TwoStepQuestionnaire {
+            get {
+                return ResourceManager.GetString("TwoStepQuestionnaire", resourceCulture);
             }
         }
     }

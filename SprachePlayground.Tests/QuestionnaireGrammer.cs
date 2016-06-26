@@ -2,7 +2,7 @@
 
 namespace SprachePlayground.Tests
 {
-    public class QuestionnaireGrammer
+    public class QuestionnaireGrammar
     {
         public static Questionnaire ParseQuestionnaire(string questionnaire)
         {

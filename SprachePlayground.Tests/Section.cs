@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SprachePlayground.Tests
 {
@@ -6,6 +7,10 @@ namespace SprachePlayground.Tests
     {
         public Section(string id, string title, IEnumerable<Question> questions)
         {
+            if (id == null) throw new ArgumentNullException("id");
+            if (title == null) throw new ArgumentNullException("title");
+            if (questions == null) throw new ArgumentNullException("questions");
+
             Id = id;
             Title = title;
             Questions = questions;

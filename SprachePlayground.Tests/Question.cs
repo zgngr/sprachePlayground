@@ -1,9 +1,14 @@
-﻿namespace SprachePlayground.Tests
+﻿using System;
+
+namespace SprachePlayground.Tests
 {
     public class Question
     {
         public Question(string id, string prompt, AnswerType at)
         {
+            if (id == null) throw new ArgumentNullException("id");
+            if (prompt == null) throw new ArgumentNullException("prompt");
+
             Id = id;
             Prompt = prompt;
             AnswerType = at;
