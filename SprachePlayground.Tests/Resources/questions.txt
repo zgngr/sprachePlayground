@@ -1,0 +1,5 @@
+identification  "Personal Details"
+[
+    name        "Full Name"
+    department  "Department"
+]

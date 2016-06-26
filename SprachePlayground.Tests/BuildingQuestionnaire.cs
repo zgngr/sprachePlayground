@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using NUnit.Framework;
 using Sprache;
+using SprachePlayground.Tests.Properties;
 
 namespace SprachePlayground.Tests
 {
@@ -47,8 +48,8 @@ namespace SprachePlayground.Tests
         [Test]
         public void Smoke()
         {
-            var input = File.ReadAllText(@"C:\Users\zgngr\Desktop\questions.txt");
-            
+            var input = Resources.questions;
+
             var section = QuestionnaireGrammer.Section.Parse(input);
         }
     }
