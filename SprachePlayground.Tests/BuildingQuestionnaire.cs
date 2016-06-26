@@ -1,4 +1,4 @@
-﻿using System.IO;
+﻿using System.Linq;
 using NUnit.Framework;
 using Sprache;
 using SprachePlayground.Tests.Properties;
@@ -12,7 +12,7 @@ namespace SprachePlayground.Tests
         public void AnIdentifierIsASequenceOfCharacters()
         {
             var id = QuestionnaireGrammer.Identifier.Parse("name");
-           
+
             Assert.AreEqual("name", id);
         }
 
@@ -20,7 +20,7 @@ namespace SprachePlayground.Tests
         public void AnIdentifierDoesNotIncludeSpace()
         {
             var parsed = QuestionnaireGrammer.Identifier.Parse("a b");
-            
+
             Assert.AreEqual("a", parsed);
         }
 
@@ -28,9 +28,9 @@ namespace SprachePlayground.Tests
         public void QuotedTextReturnsAValueBetweenQuotes()
         {
             var input = "\"this is text\"";
-            
+
             var content = QuestionnaireGrammer.QuotedText.Parse(input);
-            
+
             Assert.AreEqual("this is text", content);
         }
 
@@ -38,7 +38,7 @@ namespace SprachePlayground.Tests
         public void AQuestionIsAnIdentifierFollowedByAPrompt()
         {
             var input = "name \"Full Name\"";
-    
+
             var question = QuestionnaireGrammer.Question.Parse(input);
 
             Assert.AreEqual("name", question.Id);
@@ -50,7 +50,9 @@ namespace SprachePlayground.Tests
         {
             var input = Resources.questions;
 
-            var section = QuestionnaireGrammer.Section.Parse(input);
+            var questionnaire = QuestionnaireGrammer.Questionnaire.Parse(input);
+
+            Assert.AreEqual(2, questionnaire.Sections.Count());
         }
     }
 }
