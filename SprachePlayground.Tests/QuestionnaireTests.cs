@@ -6,7 +6,7 @@ using Sprache;
 namespace SprachePlayground.Tests
 {
     [TestFixture]
-    public class BuildingQuestionnaire
+    public class QuestionnaireTests
     {
         [Test]
         public void TextIsAQuoteDelimitedString()

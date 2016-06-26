@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuildingQuestionnaire.cs" />
+    <Compile Include="QuestionnaireTests.cs" />
     <Compile Include="ObjectDumper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestInputResources.Designer.cs">
