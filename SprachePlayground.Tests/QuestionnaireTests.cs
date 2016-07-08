@@ -1,94 +1,93 @@
 ﻿using System.Linq;
-using NUnit.Framework;
 using Questionnaire;
 using Sprache;
+using Xunit;
 
 namespace SprachePlayground.Tests
 {
-    [TestFixture]
     public class QuestionnaireTests
     {
-        [Test]
+        [Fact]
         public void TextIsAQuoteDelimitedString()
         {
             var input = "\"Hello, world!\"";
             var parsed = QuestionnaireGrammar.QuotedText.End().Parse(input);
-            Assert.AreEqual("Hello, world!", parsed);
+            Assert.Equal("Hello, world!", parsed);
         }
 
-        [Test]
+        [Fact]
         public void AnIdentifierIsAStringOfNonWhitespaceCharacters()
         {
             var input = "hello";
             var parsed = QuestionnaireGrammar.Identifier.End().Parse(input);
-            Assert.AreEqual("hello", parsed);
+            Assert.Equal("hello", parsed);
         }
 
-        [Test]
+        [Fact]
         public void AQuestionIsAnIdFollowedByPromptText()
         {
             var input = "day \"Day of Week\"";
             var parsed = QuestionnaireGrammar.Question.End().Parse(input);
-            Assert.AreEqual("day", parsed.Id);
-            Assert.AreEqual("Day of Week", parsed.Prompt);
+            Assert.Equal("day", parsed.Id);
+            Assert.Equal("Day of Week", parsed.Prompt);
         }
 
-        [Test]
+        [Fact]
         public void DefaultAnswerTypeIsText()
         {
             var input = "name \"Your Name\"";
             var parsed = QuestionnaireGrammar.Question.End().Parse(input);
-            Assert.AreEqual(AnswerType.Text, parsed.AnswerType);
+            Assert.Equal(AnswerType.Text, parsed.AnswerType);
         }
 
-        [Test]
+        [Fact]
         public void HashIndicatesAnswerTypeIsNatural()
         {
             var input = "#bottles \"Number of Bottles\"";
             var parsed = QuestionnaireGrammar.Question.End().Parse(input);
-            Assert.AreEqual(AnswerType.Natural, parsed.AnswerType);
+            Assert.Equal(AnswerType.Natural, parsed.AnswerType);
         }
 
-        [Test]
+        [Fact]
         public void DollarSignIndicatesAnswerTypeIsNumber()
         {
             var input = "$quantiy \"Quantity\"";
             var parsed = QuestionnaireGrammar.Question.End().Parse(input);
-            Assert.AreEqual(AnswerType.Number, parsed.AnswerType);
+            Assert.Equal(AnswerType.Number, parsed.AnswerType);
         }
 
-        [Test]
+        [Fact]
         public void QuestionMarkIndicatesAnswerTypeIsYesNo()
         {
             var input = "?send \"Send Mail\"";
             var parsed = QuestionnaireGrammar.Question.End().Parse(input);
-            Assert.AreEqual(AnswerType.YesNo, parsed.AnswerType);
+            Assert.Equal(AnswerType.YesNo, parsed.AnswerType);
         }
 
-        [Test]
+        [Fact]
         public void PercentIndicatesAnswerTypeIsDate()
         {
             var input = "%when \"When\"";
             var parsed = QuestionnaireGrammar.Question.End().Parse(input);
-            Assert.AreEqual(AnswerType.Date, parsed.AnswerType);
+            Assert.Equal(AnswerType.Date, parsed.AnswerType);
         }
 
-        [Test]
+        [Fact]
         public void ASectionIncludesIdTitleAndQuestions()
         {
             var input = TestInputResources.NameAgeSection;
             var parsed = QuestionnaireGrammar.Section.End().Parse(input);
-            Assert.AreEqual("details", parsed.Id);
-            Assert.AreEqual("Personal Details", parsed.Title);
-            Assert.AreEqual(2, parsed.Questions.Count());
+            Assert.Equal("details", parsed.Id);
+            Assert.Equal("Personal Details", parsed.Title);
+            Assert.Equal(2, parsed.Questions.Count());
         }
 
-        [Test]
+        [Fact]
         public void AQuestionnaireIsASequenceOfSteps()
         {
             var input = TestInputResources.TwoStepQuestionnaire;
             var parsed = QuestionnaireGrammar.ParseQuestionnaire(input);
-            Assert.AreEqual(2, parsed.Sections.Count());
+            Assert.Equal(2, parsed.Sections.Count());
         }
     }
 }
